@@ -16,6 +16,7 @@ class FP_Record extends Model
         'PROV_CODE',
         'MUN_CODE',
         'BGY_CODE',
+        'AGE',
         'DATE',
         'PREV_FS',
         'PREV_MS',

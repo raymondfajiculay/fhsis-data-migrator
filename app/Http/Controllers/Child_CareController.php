@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\BarangayImport;
+use App\Imports\Child_CareImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class BarangayController extends Controller
+class Child_CareController extends Controller
 {
     public function index() {
-        return view('import.index');
+        return view('childcare.index');
     }
 
-    public function import(Request $request) {
+    public function store(Request $request) {
         // Validate File
         $request->validate([
-            'import-file' => ['required', 'file']
+            'import-file' => ['required', 'file'],
         ]);
 
-        Excel::import(new BarangayImport, $request->file('import-file'));
+        Excel::import(new Child_CareImport(), $request->file('import-file'));
 
         return redirect()->back()->with('status', 'Imported Successfully');
     }

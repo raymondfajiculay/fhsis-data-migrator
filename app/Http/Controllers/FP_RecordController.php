@@ -9,16 +9,19 @@ use Maatwebsite\Excel\Facades\Excel;
 class FP_RecordController extends Controller
 {
     public function index() {
-        return view('import.index');
+        return view('fprecord.index');
     }
 
-    public function import(Request $request) {
+    public function store(Request $request) {
         // Validate File
         $request->validate([
-            'import-file' => ['required', 'file']
+            'import-file' => ['required', 'file'],
+            'age' => 'required',
         ]);
 
-        Excel::import(new FP_RecordImport, $request->file('import-file'));
+        $age = $request->input('age');
+
+        Excel::import(new FP_RecordImport($age), $request->file('import-file'));
 
         return redirect()->back()->with('status', 'Imported Successfully');
     }

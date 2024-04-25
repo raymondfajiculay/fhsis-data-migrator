@@ -17,6 +17,13 @@ class FP_RecordImport implements ToCollection, WithStartRow
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+    protected $age; // Correctly declaring age property
+
+    public function __construct($age)
+    {
+        $this->age = $age; // Store 'age' in a property
+    }
+
     public function collection(Collection $rows)
     {
         foreach ($rows as $row){
@@ -37,6 +44,7 @@ class FP_RecordImport implements ToCollection, WithStartRow
                 'PROV_CODE' => $row[1],
                 'MUN_CODE' => $row[2],
                 'BGY_CODE' => $row[3],
+                'AGE' => $this->age, // Fix for property reference
                 'DATE' => $mysqlDate,
                 'PREV_FS' => $row[5],
                 'PREV_MS' => $row[6],
