@@ -7,9 +7,8 @@
                     <label class="mb-5 block text-xl font-semibold text-[#07074D]">
                         Upload File
                     </label>
-
                     <div class="mb-8">
-                        <input type="file" name="import-file" class="sr-only" id="file"/>
+                        <input type="file" name="import-file" class="sr-only" id="file" onchange="displayFileName(this)"/>
                         <label for="file" class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center">
                             <div>
                                 <span class="mb-2 block text-xl font-semibold text-[#07074D]">
@@ -24,6 +23,10 @@
                             </div>
                         </label>
                     </div>
+                    <!-- <div class="mb-8">
+                        <input type="int">
+                    </div> -->
+                    <div id="file-name"></div> <!-- This will display the selected file name -->
                 </div>
 
                 <div>
@@ -35,3 +38,10 @@
         </div>
     </div>
 </x-layout>
+
+<script>
+    function displayFileName(input) {
+        const fileName = input.files[0].name;
+        document.getElementById('file-name').innerText = 'Selected file: ' + fileName;
+    }
+</script>

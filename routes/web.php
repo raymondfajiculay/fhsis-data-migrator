@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\BarangayController;
+use App\Http\Controllers\FP_RecordController;
+use App\Http\Controllers\MunicipalityController;
+use App\Imports\BarangayImport;
+use App\Models\Municipality;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +22,5 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/import', [BarangayController::class, 'index'])->name('test');
-Route::post('/import', [BarangayController::class, 'import'])->name('import');
+Route::get('/import', [FP_RecordController::class, 'index'])->name('test');
+Route::post('/import', [FP_RecordController::class, 'import'])->name('import');
