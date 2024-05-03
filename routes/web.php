@@ -1,11 +1,7 @@
 <?php
 
-use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\Child_CareController;
 use App\Http\Controllers\FP_RecordController;
-use App\Http\Controllers\MunicipalityController;
-use App\Imports\BarangayImport;
-use App\Models\Municipality;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +28,3 @@ Route::post('/fprecord', [FP_RecordController::class, 'store'])->name('fprecord'
 
 Route::get('/childcare', [Child_CareController::class, 'index'])->name('childcare');
 Route::post('/childcare', [Child_CareController::class, 'store'])->name('childcare');
-
-
